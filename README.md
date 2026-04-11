@@ -1,200 +1,100 @@
-# TravelQA Bench
+# Offline LLM Knowledge Benchmarks
 
-**The first benchmark for practical travel knowledge in LLMs.**
+Can a 2B parameter model running locally (no internet) give you correct answers when it matters? We tested.
 
-Every existing travel benchmark (TravelBench, TripTailor, TravelPlanner) tests *planning* — itinerary generation, booking optimization, scheduling. None of them test whether the model actually *knows* anything about traveling to a country: Is the tap water safe? What's the emergency number? Which side of the road do they drive on? Will I get scammed?
+## Model Under Test
 
-TravelQA fills that gap. 500 questions. 10 knowledge categories. 31 countries. 6 continents.
+**Gemma 4 E2B** — 2B params, 4-bit quantized, running on Apple M1 via MLX. No RAG, no retrieval, no internet. Pure parametric knowledge.
 
-## Results at a Glance
+## Experiments
 
-**Gemma 4 E2B (2B params, 4-bit quantized)** on Apple M1:
+### 1. Travel Knowledge (500 questions)
+
+Practical travel info across 31 countries: emergency numbers, plug types, driving sides, cultural norms, scams, visa rules.
 
 ```
-Overall: 89.0% (445/500)
+Overall: 89% (445/500)
 
-Perfect (100%):  Currency | Cultural Norms | Scams | Visa
-Strong  (84-98%): Health (98%) | Safety (90%) | Emergency (86%) | Language (84%)
-Weak    (<84%):   Transportation (70%) | Infrastructure (62%)
+100%: Currency, Cultural Norms, Scams, Visa
+84-98%: Health, Safety, Emergency, Language
+<84%: Transportation (70%), Infrastructure (62%)
 ```
 
-The model knows travel advice cold. It struggles with specific factual details — plug types, driving sides, and distinguishing police vs ambulance numbers.
+**Takeaway:** Advisory knowledge (what to do) is near-perfect. Factual recall (exact numbers, plug types) is the weak point. Only ~10 genuine knowledge failures out of 500 — most "errors" are format mismatches or positional bias in MC questions.
 
-### Error Breakdown
+### 2. Offline Use Cases (60 questions)
 
-Of the 55 raw errors, only **~10 are genuine knowledge failures**. The rest:
+Medical, military, aviation, industrial, agriculture, disaster, maritime, outdoor, education, legal, comms.
 
-| Error Type | Count | Example |
-|-----------|-------|---------|
-| Positional B-bias (driving side) | 13 | Always picks option B regardless of country |
-| Format mismatch | 11 | "Type A and B" vs expected "Type A, B" |
-| Partial knowledge | 9 | Knows one plug type, not all variants |
-| Keyword matching too strict | 7 | "tesekkur" doesn't match "tesekkur" |
-| Voltage rounding | 3 | 220V vs 230V (both defensible) |
-| Benchmark error | 1 | Vietnam tap water marked safe (it's not) |
-| **Genuine knowledge gaps** | **~10** | Wrong emergency number, wrong phrase meaning |
+```
+Overall: 80% (48/60)
 
-### Real Knowledge Gaps
+100%: Industrial, Rural Health, Outdoor, Legal, Comms
+80-88%: Medical, Agriculture, Education
+50-60%: Maritime, Military/Survival, Aviation, Disaster
+```
 
-The only category with genuine failures is **emergency numbers** — the model confuses which number maps to which service (police vs ambulance vs universal). Everything else is either known or partially known.
+**Takeaway:** General knowledge (first aid, plant science, law) is solid. Domain-specific protocols (squawk codes, VHF channels, buoyage systems) are not in the model.
 
-## What's in the Benchmark
+### 3. Survival Knowledge (50 questions)
 
-### 10 Categories (50 questions each)
+Deep-dive into the weakest area. Navigation, water, shelter, fire, food, first aid, signaling, hazards, tools.
 
-| Category | Type | What It Tests |
-|----------|------|--------------|
-| Safety | Multiple choice | Crime awareness, natural hazards, night safety |
-| Health | Multiple choice | Tap water, diseases, vaccinations, medical access |
-| Cultural Norms | Multiple choice | Dress codes, tipping, photography, religious sites |
-| Emergency | Exact match | Police, ambulance, fire, universal emergency numbers |
-| Currency | Mixed | Currency names, ISO codes, cash vs card usage |
-| Infrastructure | Exact match | Voltage, plug types, internet access |
-| Language | Keyword match | Official languages, greetings, common phrases |
-| Transportation | Multiple choice | Driving side, trains, buses, taxis, domestic flights |
-| Visa & Entry | Multiple choice | Visa requirements, passport validity, customs |
-| Scams | Multiple choice | Tourist scams, pricing tricks, taxi fraud |
+```
+Overall: 80% (40/50)
 
-### 31 Countries Across 6 Continents
+100%: Shelter, Tools
+80-86%: Water, First Aid, Food, Fire, Signaling
+71%: Navigation
+40%: Hazards
+```
 
-**Asia:** Japan, Thailand, Vietnam, India, Indonesia, China, South Korea, Nepal, Philippines, Malaysia
-**Europe:** Italy, Czech Republic, Norway, Greece, Turkey, Spain, Germany, France
-**Americas:** Mexico, Brazil, Argentina, Cuba, Colombia, Peru
-**Africa:** Morocco, Kenya, South Africa, Egypt, Tanzania
-**Oceania:** Australia, New Zealand
-**Middle East:** UAE, Jordan
+**Takeaway:** The model knows *concepts* but not *procedures*. It can explain what a solar still is, but can't tell you how to use an analog watch as a compass. For hazards (river crossing, ice rescue, quicksand), it gives generic "stay calm" advice instead of the specific steps that keep you alive.
 
-### Data Sources
+## Key Findings
 
-- **WikiVoyage** — scraped via MediaWiki API for Stay Safe, Stay Healthy, Respect, Buy, Connect, Talk, Get Around, Get In sections
-- **Factual databases** — emergency numbers (ITU), voltages (IEC), currencies (ISO 4217), driving sides
+1. **Advisory vs. factual split.** The model excels at "what should I generally do" (98%+) but fails at "what is the exact number/code/procedure" (~70%).
 
-## Per-Category Results (Gemma 4 E2B)
+2. **Hedging kills usefulness.** On survival questions, the model qualifies everything ("it varies", "depends on factors") instead of giving the standard answer. An offline assistant needs to be decisive.
 
-| Category | Accuracy | Notes |
-|----------|----------|-------|
-| Cultural Norms | **100%** (50/50) | Perfect |
-| Currency | **100%** (50/50) | Perfect |
-| Scams | **100%** (50/50) | Perfect |
-| Visa | **100%** (50/50) | Perfect |
-| Health | **98%** (49/50) | 1 error (Vietnam tap water — benchmark bug) |
-| Safety | **90%** (45/50) | 5 errors on advisory questions |
-| Emergency | **86%** (43/50) | Confuses police/ambulance/universal numbers |
-| Language | **84%** (42/50) | Fails on less common greetings |
-| Transportation | **70%** (35/50) | Systematic B-positional bias on driving side |
-| Infrastructure | **62%** (31/50) | Partial plug types, voltage rounding |
+3. **Domain protocols are absent.** Aviation (squawk 7700), maritime (VHF Ch 16, IALA buoyage), and military procedures are not in a 2B general-purpose model. Expected, but confirmed.
 
-## Per-Country Results (Gemma 4 E2B)
+4. **Scoring inflates failure rate.** Across all experiments, ~30% of "failures" are scoring artifacts (format mismatch, keyword stemming, LaTeX output). True knowledge accuracy is higher than raw numbers suggest.
 
-| Country | Accuracy | | Country | Accuracy |
-|---------|----------|-|---------|----------|
-| Cuba | 100% | | Czech Republic | 100% |
-| Egypt | 100% | | Germany | 100% |
-| Jordan | 100% | | Morocco | 100% |
-| Nepal | 100% | | New Zealand | 100% |
-| Peru | 100% | | Philippines | 100% |
-| South Korea | 100% | | Spain | 100% |
-| Tanzania | 100% | | Australia | 96.2% |
-| Japan | 95.7% | | China | 91.7% |
-| Thailand | 91.7% | | Greece | 90.9% |
-| Kenya | 90.3% | | Mexico | 88.5% |
-| UAE | 88.0% | | Argentina | 87.5% |
-| Norway | 87.1% | | Brazil | 87.0% |
-| Colombia | 86.7% | | India | 85.7% |
-| Turkey | 85.7% | | Italy | 81.8% |
-| Indonesia | 78.3% | | South Africa | 76.9% |
-| Vietnam | 76.5% | | | |
+5. **2B is surprisingly capable for offline use** — if you stay within advisory/educational domains and away from protocol-specific recall.
 
 ## Quick Start
 
-### Run the benchmark on your model
-
 ```bash
-# Clone
 git clone https://github.com/suryaakella/travelqa-bench.git
 cd travelqa-bench
 
-# The benchmark is just a JSON file — use it with any model
-cat benchmark.json | python -c "import json,sys; qs=json.load(sys.stdin); print(f'{len(qs)} questions loaded')"
-```
-
-### Evaluate Gemma 4 E2B locally (Apple Silicon)
-
-```bash
-# Install dependencies
 pip install mlx-vlm pandas tqdm
-
-# Download model (one-time)
 huggingface-cli download google/gemma-4-e2b-it-4bit --local-dir models/gemma-4-e2b-it-4bit
 
-# Run evaluation
-python run_eval.py --raw-only
-
-# Score and generate report
-python score.py
-# -> results/report.md
+# Run any benchmark
+python run_eval.py --raw-only          # Travel (500q)
+python run_eval_v2.py                  # Offline use cases (60q)
+python run_survival_eval.py            # Survival deep-dive (50q)
 ```
-
-### Rebuild the benchmark from scratch
-
-```bash
-# Scrape WikiVoyage (caches to sources/wikivoyage/)
-python build_benchmark.py --scrape-only
-
-# Generate QA pairs from cached data
-python build_benchmark.py --generate-only
-
-# Or do both in one step
-python build_benchmark.py
-```
-
-## Question Format
-
-Each question in `benchmark.json` follows this schema:
-
-```json
-{
-  "id": "TQA-0001",
-  "category": "safety",
-  "country": "Japan",
-  "city": null,
-  "question": "What is a common safety concern for tourists in Japan?",
-  "answer_type": "multiple_choice",
-  "choices": ["Pickpocketing and petty theft", "Volcanic eruptions", "Extreme cold weather", "Radioactive contamination"],
-  "correct_choice": "A",
-  "difficulty": "easy",
-  "source": "wikivoyage"
-}
-```
-
-Three answer types:
-- **multiple_choice** — 4 options, answer is a letter (A/B/C/D)
-- **exact_match** — short factual answer (number, currency code, voltage)
-- **keyword_match** — open-ended response scored by keyword overlap
 
 ## File Structure
 
 ```
-travelqa-bench/
-├── README.md              # This file
-├── benchmark.json         # 500 QA pairs (the deliverable)
-├── build_benchmark.py     # WikiVoyage scraper + QA generator
-├── run_eval.py            # Gemma 4 E2B evaluation runner (MLX)
-├── score.py               # Scoring + report generation
-├── rag_pipeline.py        # Optional: TF-IDF RAG retrieval
+├── benchmark.json              # 500 travel questions
+├── benchmark_v2.json           # 60 offline use case questions
+├── survival_benchmark.json     # 50 survival questions
+├── run_eval.py                 # Travel eval runner
+├── run_eval_v2.py              # Offline use case eval
+├── run_survival_eval.py        # Survival eval
+├── score.py                    # Scoring + report gen
+├── build_benchmark.py          # WikiVoyage scraper
 ├── results/
-│   └── report.md          # Gemma 4 E2B results
-└── sources/               # Cached WikiVoyage data (gitignored)
+│   ├── report.md               # Travel results
+│   └── survival_report.md      # Survival results
+└── sources/                    # Cached scraped data (gitignored)
 ```
-
-## Contributing
-
-To evaluate a new model:
-1. Write an adapter that loads your model and calls `generate(prompt) -> str`
-2. Feed each question through the appropriate prompt template (see `run_eval.py`)
-3. Run `score.py` to generate comparable results
-4. Open a PR with your results file
 
 ## License
 
-Benchmark data derived from [WikiVoyage](https://en.wikivoyage.org/) (CC BY-SA 3.0). Factual data (emergency numbers, voltages, currencies) from public sources.
+Benchmark data from [WikiVoyage](https://en.wikivoyage.org/) (CC BY-SA 3.0). Factual data from public sources (ITU, IEC, ISO 4217).
