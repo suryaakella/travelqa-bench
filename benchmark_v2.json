@@ -1,0 +1,73 @@
+[
+  {"id":"V2-001","category":"medical","question":"A patient has chest pain radiating to left arm with sweating. Most likely diagnosis?","answer_type":"keyword_match","keywords":["heart attack","myocardial infarction","mi"],"difficulty":"medium"},
+  {"id":"V2-002","category":"medical","question":"Is it safe to take ibuprofen with warfarin?","answer_type":"keyword_match","keywords":["no","bleed","risk","avoid"],"difficulty":"medium"},
+  {"id":"V2-003","category":"medical","question":"How do you treat a second-degree burn with no medical supplies?","answer_type":"keyword_match","keywords":["cool","water","cover"],"difficulty":"medium"},
+  {"id":"V2-004","category":"medical","question":"What does ABCDE stand for in emergency triage?","answer_type":"keyword_match","keywords":["airway","breathing","circulation"],"difficulty":"medium"},
+  {"id":"V2-005","category":"medical","question":"Standard adult epinephrine dose for anaphylaxis?","answer_type":"keyword_match","keywords":["0.3","mg"],"difficulty":"hard"},
+  {"id":"V2-006","category":"medical","question":"What is the recovery position and when should you use it?","answer_type":"keyword_match","keywords":["side","unconscious","breathing"],"difficulty":"easy"},
+  {"id":"V2-007","category":"medical","question":"What are signs of heatstroke vs heat exhaustion?","answer_type":"keyword_match","keywords":["hot","dry","confused","sweating"],"difficulty":"hard"},
+  {"id":"V2-008","category":"medical","question":"How do you perform CPR on an adult? What is the compression rate?","answer_type":"keyword_match","keywords":["100","120","chest","compressions"],"difficulty":"medium"},
+
+  {"id":"V2-009","category":"military_survival","question":"What is the rule of threes for survival priorities?","answer_type":"keyword_match","keywords":["3 minutes","3 days","3 weeks"],"difficulty":"medium"},
+  {"id":"V2-010","category":"military_survival","question":"How do you find north using an analog watch in the northern hemisphere?","answer_type":"keyword_match","keywords":["sun","hour","12"],"difficulty":"hard"},
+  {"id":"V2-011","category":"military_survival","question":"In NATO phonetic alphabet, what word represents the letter M?","answer_type":"keyword_match","keywords":["mike"],"difficulty":"easy"},
+  {"id":"V2-012","category":"military_survival","question":"How do you signal for rescue using a mirror?","answer_type":"keyword_match","keywords":["sun","reflect","flash","aim"],"difficulty":"medium"},
+  {"id":"V2-013","category":"military_survival","question":"What is the universal edibility test for unknown plants?","answer_type":"keyword_match","keywords":["skin","lip","tongue","wait","small"],"difficulty":"hard"},
+  {"id":"V2-014","category":"military_survival","question":"How do you purify water using sunlight (SODIS method)?","answer_type":"keyword_match","keywords":["plastic","bottle","sun","6 hours","uv"],"difficulty":"hard"},
+  {"id":"V2-015","category":"military_survival","question":"What are the symptoms of hypothermia and how do you treat it in the field?","answer_type":"keyword_match","keywords":["shivering","warm","dry","shelter"],"difficulty":"medium"},
+
+  {"id":"V2-016","category":"aviation","question":"What is the universal aviation distress frequency in MHz?","answer_type":"keyword_match","keywords":["121.5"],"difficulty":"medium"},
+  {"id":"V2-017","category":"aviation","question":"What does squawk 7700 mean?","answer_type":"keyword_match","keywords":["emergency","distress","mayday"],"difficulty":"medium"},
+  {"id":"V2-018","category":"aviation","question":"What does METAR stand for?","answer_type":"keyword_match","keywords":["meteorological","report"],"difficulty":"hard"},
+  {"id":"V2-019","category":"aviation","question":"What is the standard atmospheric pressure at sea level in millibars?","answer_type":"keyword_match","keywords":["1013","1013.25"],"difficulty":"medium"},
+  {"id":"V2-020","category":"aviation","question":"What does a flashing red light from the control tower mean to aircraft on the ground?","answer_type":"keyword_match","keywords":["clear","runway","taxi","unsafe","danger"],"difficulty":"hard"},
+
+  {"id":"V2-021","category":"industrial","question":"What is the safe approach distance for a downed power line?","answer_type":"keyword_match","keywords":["10","35","meter","feet","away"],"difficulty":"medium"},
+  {"id":"V2-022","category":"industrial","question":"What gas was the canary in a coal mine used to detect?","answer_type":"keyword_match","keywords":["carbon monoxide","methane","co","gas"],"difficulty":"easy"},
+  {"id":"V2-023","category":"industrial","question":"What do the four colors of the NFPA 704 diamond represent?","answer_type":"keyword_match","keywords":["health","flammability","reactivity","blue","red","yellow"],"difficulty":"medium"},
+  {"id":"V2-024","category":"industrial","question":"What is the minimum shade number for arc welding eye protection?","answer_type":"keyword_match","keywords":["10","11","12","shade"],"difficulty":"hard"},
+  {"id":"V2-025","category":"industrial","question":"What does LOTO stand for in industrial safety?","answer_type":"keyword_match","keywords":["lockout","tagout"],"difficulty":"easy"},
+  {"id":"V2-026","category":"industrial","question":"What are the LEL and UEL of methane gas?","answer_type":"keyword_match","keywords":["5","15","percent","explosive"],"difficulty":"hard"},
+  {"id":"V2-027","category":"industrial","question":"What is the permissible exposure limit for carbon monoxide in the workplace (OSHA)?","answer_type":"keyword_match","keywords":["50","ppm"],"difficulty":"hard"},
+
+  {"id":"V2-028","category":"agriculture","question":"What are symptoms of nitrogen deficiency in plants?","answer_type":"keyword_match","keywords":["yellow","pale","chlorosis","stunted","leaves"],"difficulty":"medium"},
+  {"id":"V2-029","category":"agriculture","question":"What is the normal body temperature for cattle in Fahrenheit?","answer_type":"keyword_match","keywords":["101","102"],"difficulty":"hard"},
+  {"id":"V2-030","category":"agriculture","question":"What soil pH range is ideal for most vegetable crops?","answer_type":"keyword_match","keywords":["6","7","6.5"],"difficulty":"medium"},
+  {"id":"V2-031","category":"agriculture","question":"How do you identify and treat bloat in cattle?","answer_type":"keyword_match","keywords":["left","side","swollen","trocar","gas","rumen"],"difficulty":"hard"},
+  {"id":"V2-032","category":"agriculture","question":"What is the recommended spacing for planting tomatoes?","answer_type":"keyword_match","keywords":["24","36","18","inch","feet","cm"],"difficulty":"medium"},
+
+  {"id":"V2-033","category":"disaster","question":"What is the recommended action during an earthquake if indoors?","answer_type":"keyword_match","keywords":["drop","cover","hold"],"difficulty":"easy"},
+  {"id":"V2-034","category":"disaster","question":"How many inches of moving water can knock a person off their feet?","answer_type":"keyword_match","keywords":["6","six"],"difficulty":"medium"},
+  {"id":"V2-035","category":"disaster","question":"What is the PASS technique for fire extinguishers?","answer_type":"keyword_match","keywords":["pull","aim","squeeze","sweep"],"difficulty":"easy"},
+  {"id":"V2-036","category":"disaster","question":"After an earthquake, what should you check before re-entering a building?","answer_type":"keyword_match","keywords":["gas","structural","crack","damage","smell"],"difficulty":"medium"},
+  {"id":"V2-037","category":"disaster","question":"What is the difference between a tornado watch and a tornado warning?","answer_type":"keyword_match","keywords":["watch","possible","warning","spotted","imminent"],"difficulty":"easy"},
+
+  {"id":"V2-038","category":"maritime","question":"What does Mayday mean in maritime communication?","answer_type":"keyword_match","keywords":["distress","emergency","life","danger"],"difficulty":"easy"},
+  {"id":"V2-039","category":"maritime","question":"What is the Beaufort scale used for?","answer_type":"keyword_match","keywords":["wind","speed","force","sea"],"difficulty":"easy"},
+  {"id":"V2-040","category":"maritime","question":"What VHF channel is the international distress and calling frequency?","answer_type":"keyword_match","keywords":["16"],"difficulty":"medium"},
+  {"id":"V2-041","category":"maritime","question":"What does a red buoy marker indicate in US waters (IALA B)?","answer_type":"keyword_match","keywords":["right","return","starboard"],"difficulty":"hard"},
+
+  {"id":"V2-042","category":"rural_health","question":"How long should you boil water to make it safe to drink at sea level?","answer_type":"keyword_match","keywords":["1","one","minute"],"difficulty":"easy"},
+  {"id":"V2-043","category":"rural_health","question":"What is the correct first aid for a venomous snakebite?","answer_type":"keyword_match","keywords":["immobilize","calm","hospital","still","medical"],"difficulty":"medium"},
+  {"id":"V2-044","category":"rural_health","question":"How do you make oral rehydration solution at home?","answer_type":"keyword_match","keywords":["salt","sugar","water","liter"],"difficulty":"medium"},
+  {"id":"V2-045","category":"rural_health","question":"What are danger signs in a child with malaria that require urgent referral?","answer_type":"keyword_match","keywords":["convulsion","unconscious","vomit","unable","drink","severe"],"difficulty":"hard"},
+
+  {"id":"V2-046","category":"outdoor","question":"How do you estimate distance of a thunderstorm using lightning and thunder?","answer_type":"keyword_match","keywords":["count","seconds","5","divide","thunder"],"difficulty":"easy"},
+  {"id":"V2-047","category":"outdoor","question":"What should you do if you encounter a black bear on a trail?","answer_type":"keyword_match","keywords":["big","noise","back","away","slowly","not run"],"difficulty":"medium"},
+  {"id":"V2-048","category":"outdoor","question":"How do you find Polaris using the Big Dipper?","answer_type":"keyword_match","keywords":["pointer","stars","line","extend","cup"],"difficulty":"medium"},
+  {"id":"V2-049","category":"outdoor","question":"What are the symptoms of altitude sickness?","answer_type":"keyword_match","keywords":["headache","nausea","dizz","fatigue","breath"],"difficulty":"easy"},
+  {"id":"V2-050","category":"outdoor","question":"How do you treat a jellyfish sting?","answer_type":"keyword_match","keywords":["vinegar","salt","hot","water","remove","tentacle"],"difficulty":"medium"},
+
+  {"id":"V2-051","category":"education","question":"Explain the Pythagorean theorem simply.","answer_type":"keyword_match","keywords":["square","hypotenuse","triangle","a","b","c"],"difficulty":"easy"},
+  {"id":"V2-052","category":"education","question":"What is photosynthesis?","answer_type":"keyword_match","keywords":["sunlight","carbon dioxide","oxygen","glucose","plant"],"difficulty":"easy"},
+  {"id":"V2-053","category":"education","question":"What year did World War II end?","answer_type":"keyword_match","keywords":["1945"],"difficulty":"easy"},
+  {"id":"V2-054","category":"education","question":"What is Newton's second law of motion?","answer_type":"keyword_match","keywords":["force","mass","acceleration","f=ma"],"difficulty":"easy"},
+  {"id":"V2-055","category":"education","question":"What is the chemical formula for water?","answer_type":"keyword_match","keywords":["h2o"],"difficulty":"easy"},
+
+  {"id":"V2-056","category":"legal","question":"What are Miranda rights in the US?","answer_type":"keyword_match","keywords":["silent","attorney","lawyer","right"],"difficulty":"easy"},
+  {"id":"V2-057","category":"legal","question":"What are the essential elements of a valid contract?","answer_type":"keyword_match","keywords":["offer","acceptance","consideration"],"difficulty":"medium"},
+  {"id":"V2-058","category":"legal","question":"What is habeas corpus?","answer_type":"keyword_match","keywords":["detention","court","unlawful","prisoner","body"],"difficulty":"medium"},
+
+  {"id":"V2-059","category":"comms_tech","question":"What is a VPN and how does it help bypass censorship?","answer_type":"keyword_match","keywords":["virtual","private","network","encrypt","tunnel"],"difficulty":"easy"},
+  {"id":"V2-060","category":"comms_tech","question":"What is a mesh network?","answer_type":"keyword_match","keywords":["device","node","relay","peer","connect"],"difficulty":"medium"}
+]

@@ -1,0 +1,60 @@
+[
+  {"id":"SUR-001","category":"navigation","question":"How do you find north using an analog watch in the northern hemisphere?","answer_type":"keyword_match","keywords":["hour hand","sun","12","bisect","midpoint"],"difficulty":"hard"},
+  {"id":"SUR-002","category":"navigation","question":"How do you find south using the Southern Cross constellation?","answer_type":"keyword_match","keywords":["extend","4.5","pointer","horizon","line"],"difficulty":"hard"},
+  {"id":"SUR-003","category":"navigation","question":"How can you determine direction using a stick and shadow method?","answer_type":"keyword_match","keywords":["shadow","tip","mark","west","east","line"],"difficulty":"medium"},
+  {"id":"SUR-004","category":"navigation","question":"What does moss growing on trees tell you about direction?","answer_type":"keyword_match","keywords":["north","shade","moist","unreliable","myth"],"difficulty":"easy"},
+  {"id":"SUR-005","category":"navigation","question":"How do you use Polaris (North Star) to determine latitude?","answer_type":"keyword_match","keywords":["angle","horizon","degree","latitude","elevation"],"difficulty":"hard"},
+  {"id":"SUR-006","category":"navigation","question":"How do you navigate using a map and compass together (triangulation)?","answer_type":"keyword_match","keywords":["bearing","landmark","intersection","two","three","point"],"difficulty":"hard"},
+  {"id":"SUR-007","category":"navigation","question":"What is dead reckoning in land navigation?","answer_type":"keyword_match","keywords":["pace","distance","direction","known","position","count"],"difficulty":"medium"},
+
+  {"id":"SUR-008","category":"water","question":"What is the rule of threes for survival priorities?","answer_type":"keyword_match","keywords":["3 minutes","3 hours","3 days","3 weeks","air","shelter","water","food"],"difficulty":"medium"},
+  {"id":"SUR-009","category":"water","question":"How do you build a solar still to collect water?","answer_type":"keyword_match","keywords":["hole","plastic","sheet","container","condensation","rock","center"],"difficulty":"hard"},
+  {"id":"SUR-010","category":"water","question":"What are signs of dehydration in the field?","answer_type":"keyword_match","keywords":["dark urine","thirst","dizz","headache","dry","fatigue"],"difficulty":"easy"},
+  {"id":"SUR-011","category":"water","question":"How do you purify water using sunlight (SODIS method)?","answer_type":"keyword_match","keywords":["plastic","bottle","sun","6 hours","uv","clear"],"difficulty":"medium"},
+  {"id":"SUR-012","category":"water","question":"Can you drink water from a cactus in an emergency?","answer_type":"keyword_match","keywords":["no","toxic","vomit","sick","barrel","prickly"],"difficulty":"hard"},
+  {"id":"SUR-013","category":"water","question":"How do you collect water from vegetation using a transpiration bag?","answer_type":"keyword_match","keywords":["plastic","bag","branch","leaves","tie","sun","condensation"],"difficulty":"hard"},
+  {"id":"SUR-014","category":"water","question":"At what temperature does boiling alone fail to kill all pathogens?","answer_type":"keyword_match","keywords":["altitude","lower","boiling point","longer","3 minutes","5 minutes"],"difficulty":"hard"},
+
+  {"id":"SUR-015","category":"shelter","question":"What is the most critical factor in choosing a survival shelter location?","answer_type":"keyword_match","keywords":["wind","water","flood","dry","elevated","protected"],"difficulty":"medium"},
+  {"id":"SUR-016","category":"shelter","question":"How do you build a debris hut shelter?","answer_type":"keyword_match","keywords":["ridgepole","leaves","debris","insulation","body","small","pile"],"difficulty":"medium"},
+  {"id":"SUR-017","category":"shelter","question":"What is the ideal size for a survival shelter and why?","answer_type":"keyword_match","keywords":["small","body heat","retain","warm","just","fit"],"difficulty":"medium"},
+  {"id":"SUR-018","category":"shelter","question":"How do you insulate yourself from cold ground?","answer_type":"keyword_match","keywords":["leaves","branches","pine","layer","barrier","ground"],"difficulty":"easy"},
+  {"id":"SUR-019","category":"shelter","question":"What natural indicators warn you NOT to camp in a location?","answer_type":"keyword_match","keywords":["dead trees","flood","dry riverbed","animal","trail","cliff","rock"],"difficulty":"medium"},
+
+  {"id":"SUR-020","category":"fire","question":"Name three methods to start a fire without matches or a lighter.","answer_type":"keyword_match","keywords":["bow drill","flint","steel","friction","lens","battery","fire plow","hand drill"],"difficulty":"medium"},
+  {"id":"SUR-021","category":"fire","question":"What are the three components of the fire triangle?","answer_type":"keyword_match","keywords":["heat","fuel","oxygen"],"difficulty":"easy"},
+  {"id":"SUR-022","category":"fire","question":"How do you build a fire in wet conditions?","answer_type":"keyword_match","keywords":["dry","tinder","birch","bark","inside","dead","standing","elevated","platform"],"difficulty":"hard"},
+  {"id":"SUR-023","category":"fire","question":"What is a fire lay and name two types?","answer_type":"keyword_match","keywords":["teepee","log cabin","lean-to","star","arrangement","structure"],"difficulty":"medium"},
+  {"id":"SUR-024","category":"fire","question":"How do you use a battery and steel wool to start a fire?","answer_type":"keyword_match","keywords":["touch","terminal","contact","spark","glow","tinder","fine"],"difficulty":"medium"},
+
+  {"id":"SUR-025","category":"food","question":"What is the universal edibility test for unknown plants?","answer_type":"keyword_match","keywords":["skin","lip","tongue","wait","small","8 hours","contact","reaction"],"difficulty":"hard"},
+  {"id":"SUR-026","category":"food","question":"Which insects are generally safe to eat in a survival situation?","answer_type":"keyword_match","keywords":["cricket","ant","grub","worm","larvae","grasshopper"],"difficulty":"medium"},
+  {"id":"SUR-027","category":"food","question":"What visual characteristics indicate a plant is likely poisonous?","answer_type":"keyword_match","keywords":["milky sap","white berries","umbrella","three leaves","bitter","almond","shiny"],"difficulty":"hard"},
+  {"id":"SUR-028","category":"food","question":"How do you build a simple snare trap for small game?","answer_type":"keyword_match","keywords":["loop","wire","noose","trail","trigger","sapling","anchor"],"difficulty":"hard"},
+  {"id":"SUR-029","category":"food","question":"How long can an average person survive without food?","answer_type":"keyword_match","keywords":["3 weeks","21 days","three weeks","30"],"difficulty":"easy"},
+  {"id":"SUR-030","category":"food","question":"What parts of a dandelion are edible?","answer_type":"keyword_match","keywords":["leaves","root","flower","all","entire"],"difficulty":"easy"},
+
+  {"id":"SUR-031","category":"first_aid","question":"How do you treat a sucking chest wound in the field?","answer_type":"keyword_match","keywords":["seal","three sides","occlusive","plastic","tape","chest"],"difficulty":"hard"},
+  {"id":"SUR-032","category":"first_aid","question":"How do you apply a tourniquet correctly?","answer_type":"keyword_match","keywords":["above","wound","tight","time","2 inches","limb","twist"],"difficulty":"medium"},
+  {"id":"SUR-033","category":"first_aid","question":"What is the treatment for a suspected spinal injury in the field?","answer_type":"keyword_match","keywords":["immobilize","not move","stabilize","head","neck","align"],"difficulty":"medium"},
+  {"id":"SUR-034","category":"first_aid","question":"How do you recognize and treat shock?","answer_type":"keyword_match","keywords":["pale","cold","clammy","rapid","pulse","elevate","legs","warm"],"difficulty":"medium"},
+  {"id":"SUR-035","category":"first_aid","question":"How do you make a splint from natural materials?","answer_type":"keyword_match","keywords":["straight","stick","branch","pad","tie","immobilize","cloth"],"difficulty":"easy"},
+  {"id":"SUR-036","category":"first_aid","question":"What are the signs of internal bleeding?","answer_type":"keyword_match","keywords":["bruising","swelling","rigid","abdomen","dizz","pale","shock","tender"],"difficulty":"medium"},
+
+  {"id":"SUR-037","category":"signaling","question":"What are the three internationally recognized ground-to-air signals?","answer_type":"keyword_match","keywords":["V","X","I","need assistance","medical","require"],"difficulty":"hard"},
+  {"id":"SUR-038","category":"signaling","question":"How do you signal for rescue using a mirror?","answer_type":"keyword_match","keywords":["sun","reflect","flash","aim","sight","hole","v"],"difficulty":"medium"},
+  {"id":"SUR-039","category":"signaling","question":"What is the universal distress signal using sound?","answer_type":"keyword_match","keywords":["three","3","whistle","blast","repeated","intervals"],"difficulty":"easy"},
+  {"id":"SUR-040","category":"signaling","question":"How do you build a signal fire that produces visible smoke?","answer_type":"keyword_match","keywords":["green","leaves","wet","rubber","oil","contrast","white","black"],"difficulty":"medium"},
+  {"id":"SUR-041","category":"signaling","question":"What does SOS stand for and how do you signal it?","answer_type":"keyword_match","keywords":["three short","three long","dot","dash","... --- ...","morse"],"difficulty":"easy"},
+
+  {"id":"SUR-042","category":"hazards","question":"How do you avoid and treat hypothermia in the field?","answer_type":"keyword_match","keywords":["dry","warm","shivering","layer","insulate","shelter","fire"],"difficulty":"medium"},
+  {"id":"SUR-043","category":"hazards","question":"What should you do if caught in a lightning storm with no shelter?","answer_type":"keyword_match","keywords":["crouch","low","ball","feet","avoid","trees","metal","spread"],"difficulty":"medium"},
+  {"id":"SUR-044","category":"hazards","question":"How do you cross a river safely on foot?","answer_type":"keyword_match","keywords":["wide","shallow","diagonal","downstream","unbuckle","stick","pole","face"],"difficulty":"hard"},
+  {"id":"SUR-045","category":"hazards","question":"What do you do if you fall through ice?","answer_type":"keyword_match","keywords":["kick","horizontal","roll","crawl","spread","weight","edge","pull"],"difficulty":"hard"},
+  {"id":"SUR-046","category":"hazards","question":"How do you avoid quicksand and escape if trapped?","answer_type":"keyword_match","keywords":["slow","lean","back","spread","float","wiggle","not struggle"],"difficulty":"medium"},
+
+  {"id":"SUR-047","category":"tools","question":"How do you sharpen a knife using a river stone?","answer_type":"keyword_match","keywords":["angle","20","smooth","flat","stroke","edge","consistent"],"difficulty":"medium"},
+  {"id":"SUR-048","category":"tools","question":"What knot is best for securing a load and how do you tie it?","answer_type":"keyword_match","keywords":["bowline","trucker","taut","clove","loop","hitch"],"difficulty":"medium"},
+  {"id":"SUR-049","category":"tools","question":"How do you make cordage from plant fibers?","answer_type":"keyword_match","keywords":["twist","reverse","wrap","fiber","bark","strip","two","ply"],"difficulty":"hard"},
+  {"id":"SUR-050","category":"tools","question":"What is the most versatile survival tool and why?","answer_type":"keyword_match","keywords":["knife","cut","shelter","fire","food","signal","tool"],"difficulty":"easy"}
+]
