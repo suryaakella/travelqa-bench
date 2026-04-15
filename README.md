@@ -4,7 +4,7 @@ Can a 2B parameter model running locally (no internet) give you correct answers 
 
 ## Model Under Test
 
-**Gemma 4 E2B** — 2B params, 4-bit quantized, running on Apple M1 via MLX. No RAG, no retrieval, no internet. Pure parametric knowledge.
+**Gemma 4 E2B** — 2B params, 4-bit quantized, running on Apple M1. No RAG, no retrieval, no internet. Pure parametric knowledge. Tested with both MLX and [Cactus](https://github.com/cactus-compute/cactus) inference engines.
 
 ## Experiments
 
@@ -51,6 +51,21 @@ Overall: 80% (40/50)
 
 **Takeaway:** The model knows *concepts* but not *procedures*. It can explain what a solar still is, but can't tell you how to use an analog watch as a compass. For hazards (river crossing, ice rescue, quicksand), it gives generic "stay calm" advice instead of the specific steps that keep you alive.
 
+### 4. California DMV Written Test (40 questions)
+
+Can it pass a driving test? 40 questions from CA DMV Class C practice exams. Evaluated with Cactus engine (12s model load vs 140s with MLX).
+
+```
+Overall: 37.5% (15/40) — FAIL (passing is 83%)
+
+80%: Parking
+67%: Right of Way
+38-43%: Rules of Road, Safe Driving
+0%: Laws/Penalties, Admin/DMV
+```
+
+**Takeaway:** The model cannot pass a state driving test. It knows basic concepts (red curb, right turn lane, parallel parking) but fails on CA-specific vehicle code: legal penalties, minor driving hours, headset laws, SR-1 filing rules. State-specific regulatory knowledge is absent from a 2B general-purpose model.
+
 ## Key Findings
 
 1. **Advisory vs. factual split.** The model excels at "what should I generally do" (98%+) but fails at "what is the exact number/code/procedure" (~70%).
@@ -62,6 +77,8 @@ Overall: 80% (40/50)
 4. **Scoring inflates failure rate.** Across all experiments, ~30% of "failures" are scoring artifacts (format mismatch, keyword stemming, LaTeX output). True knowledge accuracy is higher than raw numbers suggest.
 
 5. **2B is surprisingly capable for offline use** — if you stay within advisory/educational domains and away from protocol-specific recall.
+
+6. **State-specific legal knowledge is a hard zero.** The model scores 0% on CA vehicle code penalties and DMV admin rules. This isn't partial knowledge — it's complete absence.
 
 ## Quick Start
 
@@ -84,14 +101,16 @@ python run_survival_eval.py            # Survival deep-dive (50q)
 ├── benchmark.json              # 500 travel questions
 ├── benchmark_v2.json           # 60 offline use case questions
 ├── survival_benchmark.json     # 50 survival questions
-├── run_eval.py                 # Travel eval runner
-├── run_eval_v2.py              # Offline use case eval
-├── run_survival_eval.py        # Survival eval
+├── run_eval.py                 # Travel eval (MLX)
+├── run_eval_v2.py              # Offline use case eval (MLX)
+├── run_survival_eval.py        # Survival eval (MLX)
+├── run_dmv_cactus.py           # DMV eval (Cactus engine)
 ├── score.py                    # Scoring + report gen
 ├── build_benchmark.py          # WikiVoyage scraper
 ├── results/
 │   ├── report.md               # Travel results
-│   └── survival_report.md      # Survival results
+│   ├── survival_report.md      # Survival results
+│   └── dmv_report.md           # DMV results
 └── sources/                    # Cached scraped data (gitignored)
 ```
 
